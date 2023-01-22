@@ -31,7 +31,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     });
     // verify our smart contacts
     if (
-        developmentChains.includes(network.name) &&
+        !developmentChains.includes(network.name) &&
         process.env.ETHERSCAN_API_KEY
     ) {
         await verify(fundMe.address, args);
